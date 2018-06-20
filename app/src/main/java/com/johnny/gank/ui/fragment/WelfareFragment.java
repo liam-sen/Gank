@@ -15,6 +15,15 @@ package com.johnny.gank.ui.fragment;
  * limitations under the License.
  */
 
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
 import com.johnny.gank.R;
 import com.johnny.gank.action.ActionType;
 import com.johnny.gank.action.WelfareActionCreator;
@@ -30,18 +39,9 @@ import com.johnny.gank.ui.widget.LoadMoreView;
 import com.johnny.rxflux.Store;
 import com.johnny.rxflux.StoreObserver;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -55,8 +55,8 @@ public class WelfareFragment extends BaseFragment implements
 
     public static final String TAG = WelfareFragment.class.getSimpleName();
 
-    @Bind(R.id.refresh_layout) SwipeRefreshLayout vRefreshLayout;
-    @Bind(R.id.recycler_view) RecyclerView vWelfareRecycler;
+    @BindView(R.id.refresh_layout) SwipeRefreshLayout vRefreshLayout;
+    @BindView(R.id.recycler_view) RecyclerView vWelfareRecycler;
     private LoadMoreView vLoadMore;
 
     private GridLayoutManager mLayoutManager;

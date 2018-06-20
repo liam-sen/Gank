@@ -15,7 +15,6 @@ repositories {
 android {
 
     compileSdkVersion rootProject.ext.androidCompileSdkVersion
-    buildToolsVersion rootProject.ext.androidBuildToolsVersion
 
     defaultConfig {
         applicationId rootProject.ext.androidApplicationId
@@ -63,55 +62,49 @@ android {
                 println "using johnnyshieh's key"
                 signingConfig signingConfigs.release
             }
-            applicationVariants.all { variant ->
-                if (variant.buildType.name.equals('release')) {
-                    variant.outputs.each { output ->
-                        def outputFile = output.outputFile
-                        if (outputFile != null && outputFile.name.endsWith('.apk')) {
-                            def fileName = "Gank_v${defaultConfig.versionName}_${releaseTime()}_${variant.flavorName}.apk"
-                            output.outputFile = new File(outputFile.parent, fileName)
-                        }
-                    }
-                }
-            }
+//            applicationVariants.all { variant ->
+//                if (variant.buildType.name.equals('release')) {
+//                    variant.outputs.each { output ->
+//                        def outputFile = output.outputFile
+//                        if (outputFile != null && outputFile.name.endsWith('.apk')) {
+//                            def fileName = "Gank_v${defaultConfig.versionName}_${releaseTime()}_${variant.flavorName}.apk"
+//                            output.outputFile = new File(outputFile.parent, fileName)
+//                        }
+//                    }
+//                }
+//            }
 
-            productFlavors.all { flavor ->
-                manifestPlaceholders.put("UMENG_CHANNEL_VALUE",name)
-            }
         }
 
-        productFlavors {
-            fir {
-            }
-        }
     }
 }
 
 def dependency = rootProject.ext.dependencies
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     annotationProcessor dependency['daggerCompiler']
-    testCompile dependency['junit']
-    compile(name:'feedbacksdk', ext:'aar')
-    compile dependency['appcompat']
-    compile dependency['design']
-    compile dependency['recyclerView']
-    compile dependency['cardView']
-    compile dependency['dagger']
-    compile dependency['butterKnife']
-    compile dependency['rxJava']
-    compile dependency['rxAndroid']
-    compile dependency['rxflux']
-    compile dependency['retrofit']
-    compile dependency['converterGson']
-    compile dependency['adapterRxjava']
-    compile dependency['gson']
-    compile dependency['glide']
-    compile dependency['umengAnalytics']
-    compile dependency['timber']
-    compile dependency['logger']
-    debugCompile dependency['leakcanary']
-    releaseCompile dependency['leakcanaryNoOp']
-    provided dependency['javaxAnnotation']
+    testImplementation dependency['junit']
+    implementation(name:'feedbacksdk', ext:'aar')
+    implementation dependency['appcompat']
+    implementation dependency['design']
+    implementation dependency['recyclerView']
+    implementation dependency['cardView']
+    implementation dependency['dagger']
+    implementation dependency['butterKnife']
+    annotationProcessor dependency['butterKnifCompiler']
+    implementation dependency['rxJava']
+    implementation dependency['rxAndroid']
+    implementation dependency['rxflux']
+    implementation dependency['retrofit']
+    implementation dependency['converterGson']
+    implementation dependency['adapterRxjava']
+    implementation dependency['gson']
+    implementation dependency['glide']
+    implementation dependency['umengAnalytics']
+    implementation dependency['timber']
+    implementation dependency['logger']
+    debugImplementation dependency['leakcanary']
+    releaseImplementation dependency['leakcanaryNoOp']
+    compileOnly dependency['javaxAnnotation']
 }

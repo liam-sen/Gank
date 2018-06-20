@@ -15,17 +15,17 @@ package com.johnny.gank.ui.activity;
  * limitations under the License.
  */
 
-import com.johnny.gank.R;
-import com.johnny.gank.stat.StatName;
-import com.umeng.analytics.MobclickAgent;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
 
-import butterknife.Bind;
+import com.johnny.gank.R;
+import com.johnny.gank.stat.StatName;
+import com.umeng.analytics.MobclickAgent;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -36,7 +36,7 @@ import butterknife.ButterKnife;
  */
 public class AboutActivity extends BaseActivity {
 
-    @Bind(R.id.toolbar) Toolbar vToolbar;
+    @BindView(R.id.toolbar) Toolbar vToolbar;
 
     public static Intent newIntent(Context context) {
         return new Intent(context, AboutActivity.class);

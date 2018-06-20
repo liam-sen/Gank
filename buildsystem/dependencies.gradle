@@ -1,22 +1,21 @@
 
 ext {
     //Android
-    androidBuildToolsVersion = "25.0.0"
     androidMinSdkVersion = 19
-    androidTargetSdkVersion = 23
-    androidCompileSdkVersion = 23
+    androidTargetSdkVersion = 27
+    androidCompileSdkVersion = 27
 
     //Libraries
-    recyclerViewVersion = '23.2.1'
-    cardViewVersion = '23.2.1'
-    appcompatVersion = '23.2.1'
-    designVersion = '23.2.1'
-    butterKnifeVersion = '7.0.1'
+    recyclerViewVersion = '27.+'
+    cardViewVersion = '27.+'
+    appcompatVersion = '27.+'
+    designVersion = '27.+'
+    butterKnifeVersion = '8.8.1'
     daggerVersion = '2.11'
     rxJavaVersion = '2.0.6'
     rxAndroidVersion = '2.0.1'
     javaxAnnotationVersion = '1.0'
-    androidAnnotationsVersion = '20.0.0'
+    androidAnnotationsVersion = '27.+'
     gsonVersion = '2.3'
     okHttpVersion = '3.2.0'
     retrofitVersion = '2.2.0'
@@ -37,6 +36,7 @@ ext {
             daggerCompiler:     "com.google.dagger:dagger-compiler:${daggerVersion}",
             dagger:             "com.google.dagger:dagger:${daggerVersion}",
             butterKnife:        "com.jakewharton:butterknife:${butterKnifeVersion}",
+			butterKnifCompiler: "com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
             rxJava:             "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
             rxAndroid:          "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
             okHttp:             "com.squareup.okhttp3:okhttp:${okHttpVersion}",

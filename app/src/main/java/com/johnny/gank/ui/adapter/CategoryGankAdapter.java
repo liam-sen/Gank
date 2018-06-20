@@ -15,11 +15,6 @@ package com.johnny.gank.ui.adapter;
  * limitations under the License.
  */
 
-import com.johnny.gank.R;
-import com.johnny.gank.data.ui.GankItem;
-import com.johnny.gank.data.ui.GankNormalItem;
-import com.johnny.gank.util.AppUtil;
-
 import android.support.v7.widget.RecyclerView;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
@@ -31,9 +26,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.johnny.gank.R;
+import com.johnny.gank.data.ui.GankNormalItem;
+import com.johnny.gank.util.AppUtil;
+
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -123,8 +122,8 @@ public class CategoryGankAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     public static class NormalViewHolder extends RecyclerView.ViewHolder {
 
-        @Bind(R.id.title) TextView title;
-        @Bind(R.id.align_pic) ImageView pic;
+        @BindView(R.id.title) TextView title;
+        @BindView(R.id.align_pic) ImageView pic;
 
         public NormalViewHolder(ViewGroup parent) {
             super(LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_item_gank, parent, false));

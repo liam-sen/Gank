@@ -15,15 +15,6 @@ package com.johnny.gank.ui.activity;
  * limitations under the License.
  */
 
-import com.johnny.gank.R;
-import com.johnny.gank.action.ActionType;
-import com.johnny.gank.action.QueryActionCreator;
-import com.johnny.gank.data.ui.GankNormalItem;
-import com.johnny.gank.store.SearchStore;
-import com.johnny.gank.ui.adapter.QueryGankAdapter;
-import com.johnny.rxflux.Store;
-import com.johnny.rxflux.StoreObserver;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -34,9 +25,18 @@ import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.johnny.gank.R;
+import com.johnny.gank.action.ActionType;
+import com.johnny.gank.action.QueryActionCreator;
+import com.johnny.gank.data.ui.GankNormalItem;
+import com.johnny.gank.store.SearchStore;
+import com.johnny.gank.ui.adapter.QueryGankAdapter;
+import com.johnny.rxflux.Store;
+import com.johnny.rxflux.StoreObserver;
+
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -47,10 +47,10 @@ import butterknife.ButterKnife;
  */
 public class SearchActivity extends BaseActivity implements StoreObserver {
 
-    @Bind(R.id.toolbar) Toolbar vToolbar;
-    @Bind(R.id.search_view) SearchView vSearchView;
-    @Bind(R.id.recycler_view) RecyclerView vRecyclerView;
-    @Bind(R.id.empty_view) View vEmptyView;
+    @BindView(R.id.toolbar) Toolbar vToolbar;
+    @BindView(R.id.search_view) SearchView vSearchView;
+    @BindView(R.id.recycler_view) RecyclerView vRecyclerView;
+    @BindView(R.id.empty_view) View vEmptyView;
 
     @Inject SearchStore mStore;
     @Inject QueryActionCreator mQueryActionCreator;
@@ -128,7 +128,6 @@ public class SearchActivity extends BaseActivity implements StoreObserver {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ButterKnife.unbind(this);
         mStore.unRegister();
     }
 

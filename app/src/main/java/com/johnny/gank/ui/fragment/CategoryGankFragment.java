@@ -15,11 +15,6 @@ package com.johnny.gank.ui.fragment;
  * limitations under the License.
  */
 
-import com.johnny.gank.R;
-import com.johnny.gank.ui.adapter.CategoryGankAdapter;
-import com.johnny.gank.ui.widget.HeaderViewRecyclerAdapter;
-import com.johnny.gank.ui.widget.LoadMoreView;
-
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -28,7 +23,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import butterknife.Bind;
+import com.johnny.gank.R;
+import com.johnny.gank.ui.adapter.CategoryGankAdapter;
+import com.johnny.gank.ui.widget.HeaderViewRecyclerAdapter;
+import com.johnny.gank.ui.widget.LoadMoreView;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -39,8 +39,8 @@ import butterknife.ButterKnife;
  */
 public abstract class CategoryGankFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener{
 
-    @Bind(R.id.refresh_layout) SwipeRefreshLayout vRefreshLayout;
-    @Bind(R.id.recycler_view) RecyclerView vWelfareRecycler;
+    @BindView(R.id.refresh_layout) SwipeRefreshLayout vRefreshLayout;
+    @BindView(R.id.recycler_view) RecyclerView vWelfareRecycler;
     protected LoadMoreView vLoadMore;
 
     protected LinearLayoutManager mLayoutManager;
@@ -84,7 +84,6 @@ public abstract class CategoryGankFragment extends BaseFragment implements Swipe
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        ButterKnife.unbind(this);
     }
 
     protected abstract void refreshList();

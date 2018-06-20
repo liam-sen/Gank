@@ -15,6 +15,14 @@ package com.johnny.gank.ui.activity;
  * limitations under the License.
  */
 
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.view.ViewPager;
+import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
+
 import com.johnny.gank.R;
 import com.johnny.gank.action.ActionType;
 import com.johnny.gank.action.PictureActionCreator;
@@ -26,14 +34,6 @@ import com.johnny.rxflux.Store;
 import com.johnny.rxflux.StoreObserver;
 import com.umeng.analytics.MobclickAgent;
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -42,7 +42,7 @@ import java.util.Locale;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -62,7 +62,7 @@ public class PictureActivity extends BaseActivity implements
     private static final SimpleDateFormat sDateFormatter = new SimpleDateFormat("yyyy-MM-dd",
         Locale.getDefault());
 
-    @Bind(R.id.view_pager) ViewPager vViewPager;
+    @BindView(R.id.view_pager) ViewPager vViewPager;
 
 
     private String mInitPicId;      // the pic id of the first picture when enter activity.
@@ -142,7 +142,6 @@ public class PictureActivity extends BaseActivity implements
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ButterKnife.unbind(this);
     }
 
     @Override

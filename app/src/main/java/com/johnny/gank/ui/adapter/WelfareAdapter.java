@@ -15,22 +15,20 @@ package com.johnny.gank.ui.adapter;
  * limitations under the License.
  */
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.SizeReadyCallback;
-import com.johnny.gank.R;
-import com.johnny.gank.data.entity.Gank;
-import com.johnny.gank.data.ui.GankNormalItem;
-import com.johnny.gank.ui.widget.RatioImageView;
-
 import android.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
+import com.johnny.gank.R;
+import com.johnny.gank.data.ui.GankNormalItem;
+import com.johnny.gank.ui.widget.RatioImageView;
+
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -122,7 +120,7 @@ public class WelfareAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        @Bind(R.id.girl_image) RatioImageView vGirlImage;
+        @BindView(R.id.girl_image) RatioImageView vGirlImage;
 
         public ViewHolder(View itemView) {
             super(itemView);

@@ -15,21 +15,19 @@ package com.johnny.gank.ui.widget;
  * limitations under the License.
  */
 
-import com.johnny.gank.R;
-
 import android.content.Context;
 import android.support.annotation.IntDef;
-import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+
+import com.johnny.gank.R;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -51,8 +49,8 @@ public class LoadMoreView extends FrameLayout {
 
     private @LoadStatus int mStatus = STATUS_INIT;
 
-    @Bind(R.id.loading_indicator) LoadingIndicatorView vLoadingIndicator;
-    @Bind(R.id.load_tip) TextView vLoadTip;
+    @BindView(R.id.loading_indicator) LoadingIndicatorView vLoadingIndicator;
+    @BindView(R.id.load_tip) TextView vLoadTip;
 
     public LoadMoreView(Context context) {
         this(context, null);

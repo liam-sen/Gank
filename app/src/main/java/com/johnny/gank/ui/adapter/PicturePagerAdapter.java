@@ -15,10 +15,6 @@ package com.johnny.gank.ui.adapter;
  * limitations under the License.
  */
 
-import com.bumptech.glide.Glide;
-import com.johnny.gank.R;
-import com.johnny.gank.data.ui.GankNormalItem;
-
 import android.support.annotation.IntDef;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
@@ -26,13 +22,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.johnny.gank.R;
+import com.johnny.gank.data.ui.GankNormalItem;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -118,7 +118,7 @@ public class PicturePagerAdapter extends PagerAdapter {
     }
 
     public static class ViewHolder {
-        @Bind(R.id.pic) ImageView vPic;
+        @BindView(R.id.pic) ImageView vPic;
 
         public ViewHolder(View itemView) {
             ButterKnife.bind(this, itemView);

@@ -15,10 +15,6 @@ package com.johnny.gank.ui.activity;
  * limitations under the License.
  */
 
-import com.johnny.gank.R;
-import com.johnny.gank.stat.StatName;
-import com.umeng.analytics.MobclickAgent;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -26,7 +22,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -39,7 +34,11 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import butterknife.Bind;
+import com.johnny.gank.R;
+import com.johnny.gank.stat.StatName;
+import com.umeng.analytics.MobclickAgent;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -53,9 +52,9 @@ public class WebviewActivity extends BaseActivity implements SwipeRefreshLayout.
     private static final String EXTRA_URL = "URL";
     private static final String EXTRA_TITLE = "TITLE";
 
-    @Bind(R.id.toolbar) Toolbar vToolbar;
-    @Bind(R.id.refresh_layout) SwipeRefreshLayout vRefreshLayout;
-    @Bind(R.id.webview) WebView vWebView;
+    @BindView(R.id.toolbar) Toolbar vToolbar;
+    @BindView(R.id.refresh_layout) SwipeRefreshLayout vRefreshLayout;
+    @BindView(R.id.webview) WebView vWebView;
 
     private String mUrl;
     private String mTitle;
@@ -207,6 +206,5 @@ public class WebviewActivity extends BaseActivity implements SwipeRefreshLayout.
             }
             vWebView.destroy();
         }
-        ButterKnife.unbind(this);
     }
 }

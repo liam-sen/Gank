@@ -15,15 +15,6 @@ package com.johnny.gank.ui.adapter;
  * limitations under the License.
  */
 
-import com.bumptech.glide.Glide;
-import com.johnny.gank.R;
-import com.johnny.gank.data.ui.GankGirlImageItem;
-import com.johnny.gank.data.ui.GankHeaderItem;
-import com.johnny.gank.data.ui.GankItem;
-import com.johnny.gank.data.ui.GankNormalItem;
-import com.johnny.gank.ui.widget.RatioImageView;
-import com.johnny.gank.util.AppUtil;
-
 import android.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.text.SpannableString;
@@ -35,9 +26,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.johnny.gank.R;
+import com.johnny.gank.data.ui.GankGirlImageItem;
+import com.johnny.gank.data.ui.GankHeaderItem;
+import com.johnny.gank.data.ui.GankItem;
+import com.johnny.gank.data.ui.GankNormalItem;
+import com.johnny.gank.ui.widget.RatioImageView;
+import com.johnny.gank.util.AppUtil;
+
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -158,7 +158,7 @@ public class GankListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     public static class CategoryHeaderViewHolder extends RecyclerView.ViewHolder {
 
-        @Bind(R.id.category_title) TextView title;
+        @BindView(R.id.category_title) TextView title;
 
         public CategoryHeaderViewHolder(ViewGroup parent) {
             super(LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_item_category_title, parent, false));
@@ -168,7 +168,7 @@ public class GankListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     public static class NormalViewHolder extends RecyclerView.ViewHolder {
 
-        @Bind(R.id.title) TextView title;
+        @BindView(R.id.title) TextView title;
 
         public NormalViewHolder(ViewGroup parent) {
             super(LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_item_gank, parent, false));
@@ -178,7 +178,7 @@ public class GankListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     public static class GirlImageViewHolder extends RecyclerView.ViewHolder {
 
-        @Bind(R.id.girl_image) RatioImageView girl_image;
+        @BindView(R.id.girl_image) RatioImageView girl_image;
 
         public GirlImageViewHolder(ViewGroup parent) {
             super(LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_item_girl_imge, parent, false));
