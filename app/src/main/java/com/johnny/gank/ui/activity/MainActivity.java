@@ -15,17 +15,6 @@ package com.johnny.gank.ui.activity;
  * limitations under the License.
  */
 
-import com.alibaba.sdk.android.feedback.impl.FeedbackAPI;
-import com.johnny.gank.R;
-import com.johnny.gank.di.component.MainActivityComponent;
-import com.johnny.gank.ui.fragment.AndroidFragment;
-import com.johnny.gank.ui.fragment.FrontEndFragment;
-import com.johnny.gank.ui.fragment.IOSFragment;
-import com.johnny.gank.ui.fragment.TodayGankFragment;
-import com.johnny.gank.ui.fragment.VideoFragment;
-import com.johnny.gank.ui.fragment.WelfareFragment;
-import com.umeng.analytics.MobclickAgent;
-
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -34,6 +23,15 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.johnny.gank.R;
+import com.johnny.gank.di.component.MainActivityComponent;
+import com.johnny.gank.ui.fragment.AndroidFragment;
+import com.johnny.gank.ui.fragment.FrontEndFragment;
+import com.johnny.gank.ui.fragment.IOSFragment;
+import com.johnny.gank.ui.fragment.TodayGankFragment;
+import com.johnny.gank.ui.fragment.VideoFragment;
+import com.johnny.gank.ui.fragment.WelfareFragment;
 
 import java.util.HashMap;
 
@@ -83,13 +81,11 @@ public class MainActivity extends BaseActivity
     @Override
     protected void onResume() {
         super.onResume();
-        MobclickAgent.onResume(this);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        MobclickAgent.onPause(this);
     }
 
     @Override
@@ -189,8 +185,5 @@ public class MainActivity extends BaseActivity
         uiCustomInfoMap.put("themeColor", "#00acc1");
         uiCustomInfoMap.put("hideLoginSuccess", "true");
         uiCustomInfoMap.put("pageTitle", getString(R.string.nav_feedback));
-        FeedbackAPI.setUICustomInfo(uiCustomInfoMap);
-        FeedbackAPI.setCustomContact("Contact", true);
-        FeedbackAPI.openFeedbackActivity(this);
     }
 }

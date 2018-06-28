@@ -27,12 +27,10 @@ import com.johnny.gank.R;
 import com.johnny.gank.action.ActionType;
 import com.johnny.gank.action.PictureActionCreator;
 import com.johnny.gank.data.ui.GankNormalItem;
-import com.johnny.gank.stat.StatName;
 import com.johnny.gank.store.NormalGankStore;
 import com.johnny.gank.ui.adapter.PicturePagerAdapter;
 import com.johnny.rxflux.Store;
 import com.johnny.rxflux.StoreObserver;
-import com.umeng.analytics.MobclickAgent;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -149,8 +147,6 @@ public class PictureActivity extends BaseActivity implements
         super.onResume();
         mStore.setObserver(this);
         mStore.register(ActionType.GET_PICTURE_LIST);
-        MobclickAgent.onPageStart(StatName.PAGE_PICTURE);
-        MobclickAgent.onResume(this);
     }
 
     @Override
@@ -159,8 +155,6 @@ public class PictureActivity extends BaseActivity implements
         // if unsubscribe is in onDestroy, this activity's onDestroy may delay to new activity's onCreate
         // it will cause that storeChange event can't receive in new activity
         mStore.unRegister();
-        MobclickAgent.onPageEnd(StatName.PAGE_PICTURE);
-        MobclickAgent.onPause(this);
     }
 
     private void loadPictureList(int page) {

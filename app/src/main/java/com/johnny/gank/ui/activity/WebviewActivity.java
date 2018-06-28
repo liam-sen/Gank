@@ -35,8 +35,6 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.johnny.gank.R;
-import com.johnny.gank.stat.StatName;
-import com.umeng.analytics.MobclickAgent;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -89,8 +87,6 @@ public class WebviewActivity extends BaseActivity implements SwipeRefreshLayout.
     @Override
     protected void onResume() {
         super.onResume();
-        MobclickAgent.onPageStart(StatName.PAGE_WEBVIEW);
-        MobclickAgent.onResume(this);
     }
 
     @Override
@@ -99,8 +95,6 @@ public class WebviewActivity extends BaseActivity implements SwipeRefreshLayout.
         if(null != vWebView) {
             vWebView.onPause();
         }
-        MobclickAgent.onPageEnd(StatName.PAGE_WEBVIEW);
-        MobclickAgent.onPause(this);
     }
 
     private void setUpWebView() {

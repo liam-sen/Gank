@@ -22,8 +22,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
 
 import com.johnny.gank.R;
-import com.johnny.gank.stat.StatName;
-import com.umeng.analytics.MobclickAgent;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -58,14 +56,10 @@ public class AboutActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        MobclickAgent.onPageStart(StatName.PAGE_ABOUT);
-        MobclickAgent.onResume(this);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        MobclickAgent.onPageEnd(StatName.PAGE_ABOUT);
-        MobclickAgent.onPause(this);
     }
 }
