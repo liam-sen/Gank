@@ -87,14 +87,6 @@
                 />
         </activity>
 
-        <!-- begin umeng -->
-        <meta-data
-            android:name="UMENG_APPKEY"
-            android:value="57986e2a67e58e48a000310a"/>
-        <meta-data
-            android:name="UMENG_CHANNEL"
-            android:value="default" />
-        <!-- end umeng -->
     </application>
 
 </manifest>
