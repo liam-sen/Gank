@@ -15,17 +15,15 @@ package com.johnny.gank;
  * limitations under the License.
  */
 
-import com.alibaba.sdk.android.feedback.impl.FeedbackAPI;
+import android.app.Application;
+import android.util.Log;
+
 import com.johnny.gank.di.component.AppComponent;
 import com.johnny.gank.di.component.DaggerAppComponent;
 import com.johnny.gank.di.module.AppModule;
 import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.Settings;
 import com.squareup.leakcanary.LeakCanary;
-import com.umeng.analytics.MobclickAgent;
-
-import android.app.Application;
-import android.util.Log;
 
 /**
  * @author Johnny Shieh (JohnnyShieh17@gmail.com)
@@ -39,13 +37,10 @@ public class GankApp extends Application{
     public void onCreate() {
         super.onCreate();
 
-        MobclickAgent.openActivityDurationTrack(false);
-        MobclickAgent.enableEncrypt(true);
-        FeedbackAPI.initAnnoy(this, getString(R.string.ali_app_key));
         Logger.initialize(
             new Settings()
                 .isShowMethodLink(true)
-                .isShowThreadInfo(false)
+                .isShowThreadInfo(true)
                 .setMethodOffset(0)
                 .setLogPriority(BuildConfig.DEBUG ? Log.VERBOSE : Log.ASSERT)
         );
@@ -62,5 +57,4 @@ public class GankApp extends Application{
     public AppComponent getAppComponent() {
         return mAppComponent;
     }
-
 }

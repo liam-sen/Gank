@@ -85,7 +85,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     annotationProcessor dependency['daggerCompiler']
     testImplementation dependency['junit']
-    implementation(name:'feedbacksdk', ext:'aar')
     implementation dependency['appcompat']
     implementation dependency['design']
     implementation dependency['recyclerView']
@@ -101,7 +100,6 @@ dependencies {
     implementation dependency['adapterRxjava']
     implementation dependency['gson']
     implementation dependency['glide']
-    implementation dependency['umengAnalytics']
     implementation dependency['timber']
     implementation dependency['logger']
     debugImplementation dependency['leakcanary']
