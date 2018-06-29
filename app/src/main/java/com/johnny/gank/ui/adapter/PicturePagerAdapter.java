@@ -23,6 +23,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.johnny.gank.R;
 import com.johnny.gank.data.ui.GankNormalItem;
 
@@ -96,11 +97,11 @@ public class PicturePagerAdapter extends PagerAdapter {
         View view = LayoutInflater.from(container.getContext()).inflate(R.layout.pager_item_picture, container, false);
         ViewHolder holder = new ViewHolder(view);
         GankNormalItem item = mItems.get(position);
+        RequestOptions options = new RequestOptions().dontAnimate().centerCrop();
         Glide.with(container.getContext())
-            .load(item.url)
-            .dontAnimate()
-            .centerCrop()
-            .into(holder.vPic);
+                .load(item.url)
+                .apply(options)
+                .into(holder.vPic);
         container.addView(view);
         return view;
     }

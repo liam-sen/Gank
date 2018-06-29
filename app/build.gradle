@@ -62,6 +62,7 @@ android {
                 println "using johnnyshieh's key"
                 signingConfig signingConfigs.release
             }
+
 //            applicationVariants.all { variant ->
 //                if (variant.buildType.name.equals('release')) {
 //                    variant.outputs.each { output ->
@@ -100,6 +101,7 @@ dependencies {
     implementation dependency['adapterRxjava']
     implementation dependency['gson']
     implementation dependency['glide']
+    annotationProcessor  dependency['compiler']
     implementation dependency['timber']
     implementation dependency['logger']
     debugImplementation dependency['leakcanary']

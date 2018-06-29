@@ -15,13 +15,13 @@ package com.johnny.gank.ui.activity;
  * limitations under the License.
  */
 
-import com.johnny.gank.GankApp;
-import com.johnny.gank.di.component.AppComponent;
-
-import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+
+import com.johnny.gank.GankApp;
+import com.johnny.gank.di.component.AppComponent;
 
 /**
  * description
@@ -41,8 +41,8 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     public void replaceFragment(int containerViewId, Fragment fragment, String tag) {
-        if(null == getFragmentManager().findFragmentByTag(tag)) {
-            getFragmentManager().beginTransaction()
+        if(null == getSupportFragmentManager().findFragmentByTag(tag)) {
+            getSupportFragmentManager().beginTransaction()
                 .replace(containerViewId, fragment, tag)
                 .commit();
         }

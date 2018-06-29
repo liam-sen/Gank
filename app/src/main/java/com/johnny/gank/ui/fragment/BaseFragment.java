@@ -15,7 +15,8 @@ package com.johnny.gank.ui.fragment;
  * limitations under the License.
  */
 
-import android.app.Fragment;
+
+import android.support.v4.app.Fragment;
 
 /**
  * description

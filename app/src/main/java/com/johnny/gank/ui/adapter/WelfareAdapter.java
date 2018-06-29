@@ -15,13 +15,14 @@ package com.johnny.gank.ui.adapter;
  * limitations under the License.
  */
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.johnny.gank.R;
 import com.johnny.gank.data.ui.GankNormalItem;
 import com.johnny.gank.ui.widget.RatioImageView;
@@ -106,10 +107,12 @@ public class WelfareAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         ViewHolder vh = (ViewHolder) holder;
         holder.itemView.setTag(position);
         GankNormalItem welfare = mWelfareList.get(position);
+        RequestOptions options = new RequestOptions()
+                .centerCrop()
+                .placeholder(R.color.imageColorPlaceholder);
         Glide.with(mFragment)
             .load(welfare.url)
-            .centerCrop()
-            .placeholder(R.color.imageColorPlaceholder)
+            .apply(options)
             .into(vh.vGirlImage);
     }
 

@@ -15,7 +15,7 @@ package com.johnny.gank.ui.adapter;
  * limitations under the License.
  */
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
@@ -27,6 +27,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.johnny.gank.R;
 import com.johnny.gank.data.ui.GankGirlImageItem;
 import com.johnny.gank.data.ui.GankHeaderItem;
@@ -112,10 +113,12 @@ public class GankListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         if(holder instanceof GirlImageViewHolder) {
             GirlImageViewHolder girlHolder = (GirlImageViewHolder) holder;
             final GankGirlImageItem girlItem = (GankGirlImageItem) mItems.get(position);
+            RequestOptions request = new RequestOptions()
+                    .placeholder(R.color.imageColorPlaceholder)
+                    .centerCrop();
             Glide.with(mFragment)
                 .load(girlItem.imgUrl)
-                .placeholder(R.color.imageColorPlaceholder)
-                .centerCrop()
+                .apply(request)
                 .into(girlHolder.girl_image);
             girlHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
