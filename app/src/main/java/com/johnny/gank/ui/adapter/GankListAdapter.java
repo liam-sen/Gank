@@ -85,6 +85,8 @@ public class GankListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 return new NormalViewHolder(parent);
             case VIEW_TYPE_GIRL_IMAGE:
                 return new GirlImageViewHolder(parent);
+            default:
+                break;
         }
         return null;
     }

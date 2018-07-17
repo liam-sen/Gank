@@ -101,7 +101,7 @@ public class AppModule {
             public Response intercept(Chain chain) throws IOException {
                 Request request = chain.request();
                 Response response = chain.proceed(request);
-                if(request.url().toString().startsWith(GankApi.BASE_URL) && !request.url().toString().startsWith(GankApi.Query_BASE_URL)) {
+                if(request.url().toString().startsWith(GankApi.BASE_URL) && !request.url().toString().startsWith(GankApi.QUERY_BASE_URL)) {
                     return response.newBuilder()
                         .header("Cache-Control", "max-age=" + CACHE_MAX_AGE)
                         .build();

@@ -114,6 +114,8 @@ public abstract class BaseLoadingIndicator {
                         animator.cancel();
                     }
                     break;
+                default:
+                    break;
             }
         }
     }

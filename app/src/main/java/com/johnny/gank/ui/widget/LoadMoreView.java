@@ -95,6 +95,8 @@ public class LoadMoreView extends FrameLayout {
                 vLoadTip.setVisibility(VISIBLE);
                 setVisibility(VISIBLE);
                 break;
+            default:
+                break;
         }
     }
 }

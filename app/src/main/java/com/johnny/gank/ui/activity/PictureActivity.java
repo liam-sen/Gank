@@ -57,7 +57,7 @@ public class PictureActivity extends BaseActivity implements
     private static final String EXTRA_PAGE_INDEX = "page_index";
     private static final String EXTRA_PIC_ID = "pic_id";
 
-    private static final SimpleDateFormat sDateFormatter = new SimpleDateFormat("yyyy-MM-dd",
+    private static final SimpleDateFormat DATE_FORMATTER = new SimpleDateFormat("yyyy-MM-dd",
         Locale.getDefault());
 
     @BindView(R.id.view_pager) ViewPager vViewPager;
@@ -90,7 +90,7 @@ public class PictureActivity extends BaseActivity implements
 
     private void parseIntentAndInitAdapter() {
         Intent intent = getIntent();
-        if(null == intent)  return;
+        if(null == intent){return;}
         String singlePicUrl = intent.getStringExtra(EXTRA_URL_SINGLE_PIC);
         if(!TextUtils.isEmpty(singlePicUrl)) {
             Date publishAt = (Date) intent.getSerializableExtra(EXTRA_PUBLISH_SINGLE_PIC);
@@ -101,7 +101,7 @@ public class PictureActivity extends BaseActivity implements
             itemList.add(item);
 
             mPagerAdapter.initList(itemList);
-            setTitle(sDateFormatter.format(publishAt));
+            setTitle(DATE_FORMATTER.format(publishAt));
         }else {
             int pageIndex = intent.getIntExtra(EXTRA_PAGE_INDEX, -1);
             String picId = intent.getStringExtra(EXTRA_PIC_ID);
@@ -181,7 +181,7 @@ public class PictureActivity extends BaseActivity implements
         public void onPageSelected(int position) {
             GankNormalItem curItem = mPagerAdapter.getItem(position);
             if(null != curItem.publishedAt) {
-                setTitle(sDateFormatter.format(curItem.publishedAt));
+                setTitle(DATE_FORMATTER.format(curItem.publishedAt));
             }
             // when scroll to the first position.
             if(position == 0) {
